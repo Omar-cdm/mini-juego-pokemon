@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Mokepon</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section id="elegir-campo-batalla">
+            <h1 class="titulo">SUPER POKEMON</h1>
+            <h2 class="sub-titulo">Elige El Campo De Batalla</h2>
+            <div id="seleccion-campo-batalla"></div>
+            <button id="seleccionar-campo-batalla">Seleccionar</button>
+        </section>
+
+        <section id="elegir-mascota">
+            <h1 class="titulo">SUPER POKEMON</h1>
+            <h2 class="sub-titulo">Selecciona Tu Pokemon</h2>
+            <div id="seleccion-mascota"></div>
+            <button id="seleccionar-mascota">Seleccionar</button>
+        </section>
+
+        <section id="combate">
+            <h1 class="titulo">SUPER POKEMON</h1>
+            <div id="tarjetas-jugadores">
+                <div class="tarjeta-jugador">
+                    <h3>Jugador</h3>
+                    <p class="nombre-macota" id="mascota-jugador"></p>
+                    <p>Vida: <span id="victorias-jugador">0</span></p>
+                    <p>Potencia: <span id="potencia-jugador"></span></p>
+                    <p>Defensa: <span id="defensa-jugador"></span></p>
+                    <p>Ataque:</p>
+                    <p id="ataque-jugador"></p>
+                </div>
+                <div id="container-batalla">
+                    <canvas id="batalla" width="360" height="200"></canvas>
+                    <canvas id="ataques" width="260" height="40"></canvas>
+                </div> 
+                <div class="tarjeta-jugador">
+                    <h3>Enemigo</h3>
+                    <p class="nombre-macota" id="mascota-enemigo"></p>
+                    <p>Vida: <span id="victorias-enemigo">0</span></p>
+                    <p>Potencia: <span id="potencia-enemigo"></span></p>
+                    <p>Defensa: <span id="defensa-enemigo"></span></p>
+                    <p>Ataque:</p>
+                    <p id="ataque-enemigo"></p>
+                </div>
+            </div>
+            <div id="container-ataques">   
+            </div>
+            <div id="container-ataques-jugador"></div>
+        </section>
+
+        <section id="mostrar-ganador">
+            <h1 class="titulo">SUPER POKEMON</h1>
+            <div class="celebracion">
+                <img class="fuego-artificial" src="./img/fuegos-artificiales.gif" alt="Fuego artificial" />
+                <h2 id="mensaje-ganador" class="sub-titulo"></h2>
+                <img class="fuego-artificial" src="./img/fuegos-artificiales.gif" alt="Fuego artificial" />
+            </div>
+            <div class="celebracion">
+                <img class="fuego-artificial" src="./img/fuegos-artificiales.gif" alt="Fuego artificial" />
+                <div id="ganador"></div>
+                <img class="fuego-artificial" src="./img/fuegos-artificiales.gif" alt="Fuego artificial" />
+            </div>
+            <button id="reiniciar-juego">Reiniciar</button>
+        </section>
+        <script src="./js/script.js"></script>
+    </body>
+</html>

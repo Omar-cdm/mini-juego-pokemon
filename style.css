@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    --bg-primary: #01083d;
+    --bg-secondary:  #91C8E4;
+    --text-primary: #78B7D0;
+    --text-secondary: #227B94;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+body { 
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Outfit", sans-serif;
+}
+
+p {
+    margin: 0 0 4px;
+}
+
+h3 {
+    margin: 0 0 8px;
+}
+
+#elegir-campo-batalla {
+    display: grid;
+    place-items: center;
+}
+
+#seleccion-campo-batalla {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+
+input {
+    display: none;
+}
+
+.tarjeta-campo {
+    width: 170px;
+    height: 80px;
+    padding: 10px;
+    border: 2px solid var(--bg-secondary);   
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: 500;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input:checked + .tarjeta-campo {
+    background-color: var(--bg-secondary);
+    color: var(--bg-primary);
+    transform: scale(1.05);
+}
+
+.tarjeta-campo:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+}
+
+#seleccionar-campo-batalla {
+    width: 160px;
+    height: 40px;
+    margin-top: 30px;
+    border-radius: 16px;
+    background-color: var(--bg-secondary);
+    font-size: 16px;
+    font-family: "Outfit", sans-serif;
+    border: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#seleccionar-campo-batalla:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+}
+
+#elegir-mascota {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--modificador);
+}
+
+.sub-titulo {
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+#seleccion-mascota {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+
+.tarjeta-mokepon {
+    width: 180px;
+    height: 80px;
+    padding: 10px;
+    border: 2px solid var(--bg-secondary);   
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: 500;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.img-mokepon {
+    width: 60px;
+    height: 60px;
+}
+
+input:checked + .tarjeta-mokepon {
+    background-color: var(--bg-secondary);
+    color: var(--bg-primary);
+    transform: scale(1.05);
+}
+
+.tarjeta-mokepon:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+}
+
+#seleccionar-mascota {
+    width: 160px;
+    height: 40px;
+    border-radius: 16px;
+    background-color: var(--bg-secondary);
+    font-family: "Outfit", sans-serif;
+    font-size: 16px;
+    border: transparent;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#seleccionar-mascota:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+}
+
+#combate {
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-ataque {
+    background-color: var(--bg-secondary);
+    width: 160px;
+    height: 40px;
+    border-radius: 16px;
+    border-color: transparent;
+    font-family: "Outfit", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-ataque:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+}
+
+.btn-ataque:disabled {
+    opacity: 0.8;
+}
+
+#container-ataques-jugador {
+    width: 550px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+}
+
+#container-combate {
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+#tarjetas-jugadores {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.tarjeta-jugador {
+    justify-items: center;
+    font-size: 16px;
+    width: 160px;
+    height: 190px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid var(--bg-secondary);       
+    border-radius: 16px;
+}
+
+.nombre-macota {
+    font-weight: 700;
+}
+
+#container-ataques {
+    width: 960px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ataque-elegido {
+    width: 256px;
+    display: flex;
+    justify-content: center;
+}
+
+#container-batalla {
+    width: 364px;
+    height: 200px;
+    position: relative;
+}
+
+#batalla {
+    background-image: url(./img/campo_batalla1.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 16px;
+    z-index: 1; 
+    border: 2px solid var(--bg-secondary);
+}
+
+#ataques {
+    position: absolute;
+    top: 120px;
+    left: 50px;
+    z-index: 2;
+}
+
+#mostrar-ganador {
+    flex-direction: column;
+    align-items: center;
+}
+
+.celebracion {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content:  space-between;
+    padding-top: 60px;
+
+}
+
+.fuego-artificial {
+    width: 210px;
+    height: 100px;
+}
+
+#reiniciar-juego {
+   width: 140px;
+   height: 30px;
+   margin-top: 40px;
+   border-radius: 16px;
+   background-color: #FFEB00;
+   border-color: transparent;
+   font-family: "Press Start 2P";
+   cursor: pointer;
+   transition: transform 0.2s ease-in-out;
+}
+
+#reiniciar-juego:hover {
+    transform: scale(1.1);
+}
+
+
