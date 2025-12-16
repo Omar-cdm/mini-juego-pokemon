@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 :root {
-    --bg-primary: #01083d;
-    --bg-secondary:  #91C8E4;
-    --text-primary: #78B7D0;
-    --text-secondary: #227B94;
+    --bg-primary: #06071f;
+    --bg-secondary:  #FFF80A;
+    --text-primary: #f80e41;
+    --text-secondary: #c1e0fa;
+    --button: #F5AD18;
 }
 
 html, body {
@@ -16,7 +17,7 @@ html, body {
 
 body { 
     background-color: var(--bg-primary);
-    color: var(--text-primary);
+    color: var(--text-secondary);
     font-family: "Outfit", sans-serif;
 }
 
@@ -26,6 +27,7 @@ p {
 
 h3 {
     margin: 0 0 8px;
+    font-weight: 900;
 }
 
 #elegir-campo-batalla {
@@ -62,14 +64,15 @@ input {
 }
 
 input:checked + .tarjeta-campo {
-    background-color: var(--bg-secondary);
-    color: var(--bg-primary);
+    background-color: rgba(255, 248, 10, 0.2);
+    backdrop-filter: blur(4px);
     transform: scale(1.05);
 }
 
 .tarjeta-campo:hover {
     transform: scale(1.05);
-    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+    background-color: rgba(255, 248, 10, 0.2);
+    backdrop-filter: blur(4px);
 }
 
 #seleccionar-campo-batalla {
@@ -77,8 +80,9 @@ input:checked + .tarjeta-campo {
     height: 40px;
     margin-top: 30px;
     border-radius: 16px;
-    background-color: var(--bg-secondary);
+    background-color: var(--button);
     font-size: 16px;
+    font-weight: 700;
     font-family: "Outfit", sans-serif;
     border: transparent;
     cursor: pointer;
@@ -86,8 +90,8 @@ input:checked + .tarjeta-campo {
 }
 
 #seleccionar-campo-batalla:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+    transform: scale(1.02);
+    box-shadow: 0px 0px 20px 2px var(--button);
 }
 
 #elegir-mascota {
@@ -97,9 +101,10 @@ input:checked + .tarjeta-campo {
 }
 
 .titulo {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 900;
-    color: var(--modificador);
+    color: var(--text-primary);
+    text-shadow: 0px 1px 20px var(--text-primary);
 }
 
 .sub-titulo {
@@ -138,23 +143,25 @@ input:checked + .tarjeta-campo {
 }
 
 input:checked + .tarjeta-mokepon {
-    background-color: var(--bg-secondary);
-    color: var(--bg-primary);
+    background-color: rgba(255, 248, 10, 0.2);
+    backdrop-filter: blur(4px);
     transform: scale(1.05);
 }
 
 .tarjeta-mokepon:hover {
     transform: scale(1.05);
-    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+    background-color: rgba(255, 248, 10, 0.2);
+    backdrop-filter: blur(4px);
 }
 
 #seleccionar-mascota {
     width: 160px;
     height: 40px;
     border-radius: 16px;
-    background-color: var(--bg-secondary);
+    background-color: var(--button);
     font-family: "Outfit", sans-serif;
     font-size: 16px;
+    font-weight: 700;
     border: transparent;
     margin-top: 30px;
     cursor: pointer;
@@ -162,8 +169,8 @@ input:checked + .tarjeta-mokepon {
 }
 
 #seleccionar-mascota:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+    transform: scale(1.02);
+    box-shadow: 0px 0px 20px 2px var(--button);
 }
 
 #combate {
@@ -172,20 +179,21 @@ input:checked + .tarjeta-mokepon {
 }
 
 .btn-ataque {
-    background-color: var(--bg-secondary);
+    background-color: var(--button);
     width: 160px;
     height: 40px;
     border-radius: 16px;
     border-color: transparent;
     font-family: "Outfit", sans-serif;
     font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
 
 .btn-ataque:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 20px 2px var(--bg-secondary);
+    transform: scale(1.02);
+    box-shadow: 0px 0px 20px 2px var(--button);
 }
 
 .btn-ataque:disabled {
@@ -227,8 +235,9 @@ input:checked + .tarjeta-mokepon {
     height: 190px;
     padding: 10px;
     box-sizing: border-box;
-    border: 2px solid var(--bg-secondary);       
+    border: 2px solid var(--bg-secondary);      
     border-radius: 16px;
+    overflow: hidden;
 }
 
 .nombre-macota {
