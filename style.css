@@ -8,14 +8,8 @@
     --button: #F5AD18;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
-}
-
 body { 
+    margin: 0;
     background-color: var(--bg-primary);
     color: var(--text-secondary);
     font-family: "Outfit", sans-serif;
@@ -30,9 +24,17 @@ h3 {
     font-weight: 900;
 }
 
+main {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #elegir-campo-batalla {
-    display: grid;
-    place-items: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #seleccion-campo-batalla {
@@ -94,13 +96,14 @@ input:checked + .tarjeta-campo {
     box-shadow: 0px 0px 20px 2px var(--button);
 }
 
-#elegir-mascota {
+.elegir-mascota {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .titulo {
+    margin-top: 0;
     font-size: 34px;
     font-weight: 900;
     color: var(--text-primary);
@@ -263,7 +266,7 @@ input:checked + .tarjeta-mokepon {
 }
 
 #batalla {
-    background-image: url(./img/campo_batalla1.jpg);
+    background-image: url(./img/campo_batalla3.jpg);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -275,7 +278,7 @@ input:checked + .tarjeta-mokepon {
 
 #ataques {
     position: absolute;
-    top: 120px;
+    top: 126px;
     left: 50px;
     z-index: 2;
 }
@@ -315,4 +318,24 @@ input:checked + .tarjeta-mokepon {
     transform: scale(1.1);
 }
 
+@media (max-width: 600px) {
+    .elegir-mascota {
+        opacity: 0;
+    }
+}
 
+@media (min-width: 600px) and (max-width: 700px) {
+    .elegir-mascota {
+        transform: scale(0.8);
+    }
+    #elegir-campo-batalla {
+        transform: scale(0.8);
+    }
+    #combate {
+        min-width: 100svh;
+        transform: scale(0.8);
+    }
+    #conatiner-batalla {
+        transform: scale(0.6);
+    }
+}

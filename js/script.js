@@ -2,7 +2,7 @@ const elegirCampoBatalla = document.getElementById('elegir-campo-batalla')
 const contenedorCamposBatalla = document.getElementById('seleccion-campo-batalla')
 const seleccionarCampoBatalla = document.getElementById('seleccionar-campo-batalla')
 
-const elegirMascota = document.getElementById('elegir-mascota')
+const elegirMascota = document.querySelector('.elegir-mascota')
 const contenedorTarjetas = document.getElementById('seleccion-mascota')
 const seleccionarMascota = document.getElementById('seleccionar-mascota')
 
@@ -62,9 +62,9 @@ class CampoDeBatalla{
     }
 }
 
-let campoArenas = new CampoDeBatalla('Campo Arenas', 'campo-arenas', './img/campo_batalla1.jpg')
-let campoInvierno = new CampoDeBatalla('Campo Invierno', 'campo-invierno', './img/campo_batalla2.jpg')
-let campoElectrico = new CampoDeBatalla('Campo Electrico', 'campo-electrico', './img/campo_batalla3.jpg')
+let campoArenas = new CampoDeBatalla('Campo Arenas', 'campo-arenas', './img/campo_batalla1.webp')
+let campoInvierno = new CampoDeBatalla('Campo Invierno', 'campo-invierno', './img/campo_batalla2.webp')
+let campoElectrico = new CampoDeBatalla('Campo Electrico', 'campo-electrico', './img/campo_batalla3.webp')
 
 camposDeBatalla.push(campoArenas, campoInvierno, campoElectrico)
 
@@ -78,15 +78,15 @@ class Ataque{
     }
 }
 
-let Impactrueno = new Ataque('Impactrueno', 'btn-impactrueno', 'especial', 20, './img/impactrueno.png')
-let Rayo = new Ataque('Rayo', 'btn-rayo', 'especial', 20, './img/rayo.png')
-let OndaTrueno = new Ataque('Onda Trueno', 'btn-onda-trueno', 'fisico', 25, './img/onda trueno.png')
-let TormentaFloral = new Ataque('Tormenta Floral', 'btn-tormenta-floral', 'especial', 20, './img/bomba-floral.png')
-let BombaLodo = new Ataque('Bomba Lodo', 'btn-bomba-lodo', 'especial', 20, './img/bomba-lodo.png')
-let Gigadreno = new Ataque('Gigadreno', 'btn-gigadreno', 'fisico', 25, './img/gigadreno.png')
-let TajoUmbrio = new Ataque('Tajo Umbrio', 'btn-tajo-umbrio', 'especial', 20, './img/tajo-umbio.png')
-let GarrasFuriosas = new Ataque('Garras Furiosas', 'btn-garras-furiosas', 'especial', 20, './img/garras-furiosas.png')
-let Cosquillas = new Ataque('Cosquillas', 'btn-cosquillas', 'fisico', 25, './img/cosquilla.png')
+let Impactrueno = new Ataque('Impactrueno', 'btn-impactrueno', 'especial', 20, './img/impactrueno.webp')
+let Rayo = new Ataque('Rayo', 'btn-rayo', 'especial', 20, './img/rayo.webp')
+let OndaTrueno = new Ataque('Onda Trueno', 'btn-onda-trueno', 'fisico', 25, './img/onda trueno.webp')
+let TormentaFloral = new Ataque('Tormenta Floral', 'btn-tormenta-floral', 'especial', 20, './img/bomba-floral.webp')
+let BombaLodo = new Ataque('Bomba Lodo', 'btn-bomba-lodo', 'especial', 20, './img/bomba-lodo.webp')
+let Gigadreno = new Ataque('Gigadreno', 'btn-gigadreno', 'fisico', 25, './img/gigadreno.webp')
+let TajoUmbrio = new Ataque('Tajo Umbrio', 'btn-tajo-umbrio', 'especial', 20, './img/tajo-umbio.webp')
+let GarrasFuriosas = new Ataque('Garras Furiosas', 'btn-garras-furiosas', 'especial', 20, './img/garras-furiosas.webp')
+let Cosquillas = new Ataque('Cosquillas', 'btn-cosquillas', 'fisico', 25, './img/cosquilla.webp')
 
 ataquesPikachu.push(Rayo, Impactrueno, OndaTrueno)
 ataquesVenusaur.push(BombaLodo, TormentaFloral, Gigadreno)
@@ -103,18 +103,26 @@ class Pokemon {
     }
 }
 
-let Pikachu = new Pokemon('Pikachu', './img/pikachu.png', 200, 50, 45, ataquesPikachu)
-let Venusaur = new Pokemon('Venusaur', './img/venusaur.png', 200, 48, 42, ataquesVenusaur)
-let Meowth = new Pokemon('Meowth', './img/meowth.png', 200, 46, 44, ataquesMeowth)
+let Pikachu = new Pokemon('Pikachu', './img/pikachu.webp', 200, 50, 45, ataquesPikachu)
+let Venusaur = new Pokemon('Venusaur', './img/venusaur.webp', 200, 48, 42, ataquesVenusaur)
+let Meowth = new Pokemon('Meowth', './img/meowth.webp', 200, 46, 44, ataquesMeowth)
 
 pokemones.push(Pikachu, Venusaur, Meowth)
 
 function iniciarJuego() {
-
-    elegirMascota.style.display = 'none'
+    elegirCampoBatalla.style.display = 'none'
     seccionCombate.style.display = 'none'
     seccionMostrarGanador.style.display = 'none'
     btnReiniciar.style.display = 'none'
+
+    seccionElegirMascota()
+
+    btnReiniciar.addEventListener('click', reiniciarJuego)
+}
+
+function sectionElegirCampo() {
+    elegirMascota.style.display = 'none'
+    elegirCampoBatalla.style.display = 'flex'
 
     camposDeBatalla.forEach((campo) => {
         opcionDeCampo = `
@@ -131,20 +139,15 @@ function iniciarJuego() {
     })
 
     seleccionarCampoBatalla.addEventListener('click', campoBatallaSeleccionado)
-
-    btnReiniciar.addEventListener('click', reiniciarJuego)
 }
 
 function campoBatallaSeleccionado() {
     if (arenas.checked == true) {
-        //campoBatallaElegido(camposDeBatalla[0])
-        seccionElegirMascota()
+        campoBatallaElegido(camposDeBatalla[0])
     } else if (invierno.checked == true) {
-        //campoBatallaElegido(camposDeBatalla[1])
-        seccionElegirMascota()
+        campoBatallaElegido(camposDeBatalla[1])
     } else if (electrico.checked == true) {
-        //campoBatallaElegido(camposDeBatalla[2])
-        seccionElegirMascota()
+        campoBatallaElegido(camposDeBatalla[2])
     } else {
         alert('Selecciona El Campo De Batalla')
     }
@@ -153,10 +156,11 @@ function campoBatallaSeleccionado() {
 // Funcion para modificar el fondo del Body
 // Resive como parametro un objeto del array camposDeBatalla
 function campoBatallaElegido(campo) {
-    document.body.style.backgroundImage = `url(${campo.imagen})`
-    document.body.style.backgroundSize = "cover"
-    document.body.style.backgroundPosition = "center"
-    document.body.style.backgroundRepeat = "no-repeat"
+    elegirCampoBatalla.style.display = 'none'
+    seccionCombate.style.display = 'flex'
+
+    batalla.style.backgroundImage = `url(${campo.imagen})`
+    batalla.style.backgroundSize = "cover"
 }
 
 function seccionElegirMascota() {
@@ -185,12 +189,15 @@ function mascotaSeleccionada() {
     if (pikachu.checked == true) {
         mascotaJugador.innerHTML = pikachu.id
         mascotaElegida = JSON.parse(JSON.stringify(pokemones[0]))
+        sectionElegirCampo()
     } else if (venusaur.checked == true) {
         mascotaJugador.innerHTML = venusaur.id
         mascotaElegida = JSON.parse(JSON.stringify(pokemones[1]))
+        sectionElegirCampo()
     } else if (meowth.checked == true) {
         mascotaJugador.innerHTML = meowth.id
         mascotaElegida = JSON.parse(JSON.stringify(pokemones[2]))
+        sectionElegirCampo()
     } else {
         alert('Selecciona tu mascota')
     }
@@ -239,9 +246,6 @@ function secuenciaAtaques() {
 }
 
 function elegirMascotaEnemigo() {
-    elegirMascota.style.display = 'none'
-    seccionCombate.style.display = 'flex'
-
     let mascota = random(0, pokemones.length -1)
     mascotaElegidaEnemigo = JSON.parse(JSON.stringify(pokemones[mascota]))
     
@@ -265,13 +269,19 @@ function dibujarMascota(mascota) {
         let imagenJugador = new Image()
         imagenJugador.src = mascota.imagen
         imagenJugador.onload = () => {
-            ctx.drawImage(imagenJugador, 10, 120, 40, 40)
+            ctx.imageSmoothingEnabled = true
+            //high para maxima calidad al renderizar
+            ctx.imageSmoothingQuality = 'high'
+            ctx.drawImage(imagenJugador, Math.floor(20), Math.floor(120), 50, 50)
         }
     } else if (mascota === mascotaElegidaEnemigo) {
         let imagenEnemigo = new Image()
         imagenEnemigo.src = mascota.imagen
         imagenEnemigo.onload = () => {
-            ctx.drawImage(imagenEnemigo, 310, 120, 40, 40)
+            ctx.imageSmoothingEnabled = true
+            //high para maxima calidad al renderizar
+            ctx.imageSmoothingQuality = 'high'
+            ctx.drawImage(imagenEnemigo, Math.floor(290), Math.floor(120), 50, 50)
         }
     }
 }
@@ -332,10 +342,10 @@ function animacionAtaque(mascota, ataque) {
             setTimeout(() => { 
                 desactivarBotones(false)
                 lanzarAtaque(mascotaElegidaEnemigo, ataque, mascotaElegida)
-                verificarVida()
             }, 1200)
         }
     }
+    verificarVida()
 } 
 
 function verificarVida() {
