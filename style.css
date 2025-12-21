@@ -25,7 +25,7 @@ h3 {
 }
 
 main {
-    min-width: 100dvh;
+    min-width: 100dvw;
     min-height: 100dvh;
     display: flex;
     justify-content: center;
@@ -277,44 +277,68 @@ input:checked + .tarjeta-mokepon {
     z-index: 2;
 }
 
-#mostrar-ganador {
-    flex-direction: column;
-    align-items: center;
-}
-
-.celebracion {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content:  space-between;
-    padding-top: 60px;
-
-}
-
-.fuego-artificial {
-    width: 210px;
-    height: 100px;
-}
-
 #reiniciar-juego {
    width: 140px;
-   height: 30px;
-   margin-top: 40px;
+   height: 40px;
+   margin-top: 20px;
    border-radius: 16px;
-   background-color: #FFEB00;
+   background-color: var(--button);
+   color: var(--bg-primary);
+   font-weight: 700;
    border-color: transparent;
-   font-family: "Press Start 2P";
+   font-family: "Outfit", sans-serif;
+   font-size: 16px;
    cursor: pointer;
    transition: transform 0.2s ease-in-out;
 }
 
 #reiniciar-juego:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
+    box-shadow: 0px 0px 20px 2px var(--button);
+}
+
+#aviso-girar-pantalla {
+    display: none;
+}
+
+.girar-celular {
+    fill: var(--text-secondary);
 }
 
 @media (max-width: 600px) {
+    main {
+        max-width: 100%;
+        max-height: 100svh;
+    }
+    #aviso-girar-pantalla {
+        max-width: 100%;
+        max-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .sub-titulo {
+        margin-bottom: 40px;
+        transform: scale(1.2);
+    }
+    .girar-celular {
+        animation: girar 2s ease infinite;
+        transition: transform 2s ease;
+    }
     .elegir-mascota {
+        position: absolute;
+        top: -100vh;
         opacity: 0;
+    }
+}
+
+@keyframes girar {
+    0% {
+        transform: rotate(40deg);
+    }
+    100% {
+        transform: rotate(134deg);
     }
 }
 

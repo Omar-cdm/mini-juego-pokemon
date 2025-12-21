@@ -341,9 +341,13 @@ function animacionAtaque(mascota, ataque) {
 
 function verificarVida() {
     if (mascotaElegida.vida <= 0 && mascotaElegidaEnemigo.vida > mascotaElegida.vida) {
+        containerAtaquesJugador.style.display = 'none'
+        btnReiniciar.style.display = 'block'
         desactivarBotones(true)
         mostrarGanador(mascotaElegidaEnemigo)
     } else if(mascotaElegidaEnemigo.vida <= 0 && mascotaElegidaEnemigo.vida < mascotaElegida.vida) {
+        containerAtaquesJugador.style.display = 'none'
+        btnReiniciar.style.display = 'block'
         desactivarBotones(true)
         mostrarGanador(mascotaElegida)
     } 
