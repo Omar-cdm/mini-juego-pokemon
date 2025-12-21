@@ -25,10 +25,6 @@ const ctx = batalla.getContext("2d")
 const ataques = document.getElementById('ataques')
 const ctx2 = ataques.getContext("2d")
 
-const seccionMostrarGanador = document.getElementById('mostrar-ganador')
-const mensajeGanador = document.getElementById('mensaje-ganador')
-const containerGanador = document.getElementById('ganador')
-
 let camposDeBatalla = []
 let arenas
 let invierno
@@ -112,7 +108,6 @@ pokemones.push(Pikachu, Venusaur, Meowth)
 function iniciarJuego() {
     elegirCampoBatalla.style.display = 'none'
     seccionCombate.style.display = 'none'
-    seccionMostrarGanador.style.display = 'none'
     btnReiniciar.style.display = 'none'
 
     seccionElegirMascota()
@@ -156,11 +151,11 @@ function campoBatallaSeleccionado() {
 // Funcion para modificar el fondo del Body
 // Resive como parametro un objeto del array camposDeBatalla
 function campoBatallaElegido(campo) {
-    elegirCampoBatalla.style.display = 'none'
-    seccionCombate.style.display = 'flex'
-
     batalla.style.backgroundImage = `url(${campo.imagen})`
     batalla.style.backgroundSize = "cover"
+
+    elegirCampoBatalla.style.display = 'none'
+    seccionCombate.style.display = 'flex'
 }
 
 function seccionElegirMascota() {
@@ -318,12 +313,10 @@ function animacionAtaque(mascota, ataque) {
 
                 if (x > ataques.width + 10) {
                     clearInterval(mover)
+                    lanzarAtaque(mascotaElegida, ataque, mascotaElegidaEnemigo)
+                    elegirAtaqueEnemigo() 
                 }
-            }, 50)
-            setTimeout(() => {
-                lanzarAtaque(mascotaElegida, ataque, mascotaElegidaEnemigo)
-                elegirAtaqueEnemigo() 
-            }, 1200)       
+            }, 50)     
         }
     } else if (mascota === mascotaElegidaEnemigo) {
         let imagenAtaqueEnemigo = new Image()
@@ -335,27 +328,23 @@ function animacionAtaque(mascota, ataque) {
                 ctx2.drawImage(imagenAtaqueEnemigo, i, 15, 20, 20)
                 i -= 15
 
-                if (i < ataques.width - 650) {
+                if (i < ataques.width - 300) {
                     clearInterval(mover)
+                    desactivarBotones(false)
+                    lanzarAtaque(mascotaElegidaEnemigo, ataque, mascotaElegida)
+                    verificarVida()
                 }
             }, 50)
-            setTimeout(() => { 
-                desactivarBotones(false)
-                lanzarAtaque(mascotaElegidaEnemigo, ataque, mascotaElegida)
-            }, 1200)
         }
-    }
-    verificarVida()
+    } 
 } 
 
 function verificarVida() {
-    if (mascotaElegida.vida <= 0) {
+    if (mascotaElegida.vida <= 0 && mascotaElegidaEnemigo.vida > mascotaElegida.vida) {
         desactivarBotones(true)
-        mensajeGanador.textContent = 'Pokemon Enemigo Ha Ganado'
         mostrarGanador(mascotaElegidaEnemigo)
-    } else if(mascotaElegidaEnemigo.vida <= 0) {
+    } else if(mascotaElegidaEnemigo.vida <= 0 && mascotaElegidaEnemigo.vida < mascotaElegida.vida) {
         desactivarBotones(true)
-        mensajeGanador.textContent = 'Pokemon Jugador Ha Ganado'
         mostrarGanador(mascotaElegida)
     } 
 }
@@ -377,8 +366,22 @@ function mostrarGanador(ganador) {
     imagen.src = ganador.imagen
     imagen.onload = () => {
         ctx.clearRect(0, 0, batalla.width, batalla.height)
-        ctx.drawImage(imagen, 150, 60, 60, 60)
+        ctx.drawImage(imagen, 152, 90, 60, 60)
     }
+    if (ganador === mascotaElegida) {
+        let imagenGanador = new Image()
+        imagenGanador.src = "./img/victoria-jugador1.webp"
+        imagenGanador.onload = () => {
+            ctx.drawImage(imagenGanador, 110, -20, 140, 140)
+        }
+    } else {
+        let imagenGanador = new Image()
+        imagenGanador.src = "./img/victoria-enemigo-1.webp"
+        imagenGanador.onload = () => {
+            ctx.drawImage(imagenGanador, 110, -20, 140, 140)
+        }
+    }
+    
 }
 
 function reiniciarJuego() {
